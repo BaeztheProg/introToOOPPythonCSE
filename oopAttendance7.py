@@ -67,4 +67,6 @@ def attache():
   if len(FINALREGIS) == 32: 
     print("ATTENDANCE COMPLETE")
 
+attache()
+
   
