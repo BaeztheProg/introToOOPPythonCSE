@@ -1,41 +1,70 @@
+attendancech = ["bhavya", "shreya", "aleena"]
+idnumat = [123213, 123124, 123125]
+FINALREGIS = []
 #attendance app that automatically takes student attendance
-#how?
-#Dream develop an app that uses AI to recognize student face.
-#Get user data to recognize the user by an ID (password)
-#Track arrival time with school schedule to decide if student is late.
-#Student types in all the data.
-#What data?
+#how
+#dream develop an app that uses AI to recognize student face. 
+#get user data to recognize the user by an ID (password)
+#track arrival time
+#student types in data
+#what data?
 
-#Register Student
+#register student
+
 def studentRegistration():
-    studentName = input("Enter your name")
-    #Not a scalable approach, only one student or make 32 variable!!!
+  global studentName 
+  studentName = input("enter your name")
+  if studentName in attendancech:
+    print("NAME ACCEPTED!")
+  else: 
+    print("NAME NOT ACCEPTED!")
+    studentRegistration()  
+  
+      
+      
+  #not a scalable approach, only one student ormake 32 variables!!
 
-#Take attendance
-
+#take attendance
 def attendance():
-    userInput = input ("What is your student ID?")
-    #Check for random chars like - or . TOODO
-    if userInput.isnumeric():
-        userInput = int(userInput)
+  global userInput
+  userInput = input("whats ur student id")
+  if userInput.isnumeric():
+    userInput = int(userInput)
+    if userInput in idnumat:
+      print("ID ACCEPTED!")
     else:
-        print("Numbers only YO!")            
-        attendance()
+      print("ID NOT ACCEPTED!")
+      attendance()
+  else:
+    print("numbers only")
+    attendance()
 
-
-#Student Data
-#Name
-studentName = ""
+def check(): 
+  FINALREGIS.append(studentName + str(userInput))
+  
+  
+    ##no way recursion!!!!!!!!!!!
+#student data
+#name
+studentname = ""
 #age or grade level
 age = 0
-#In class Present, Late, Not Present
-attendance = ""
-#Student ID
+#inclass, present, late, not present
+present = ""
+#student id
 sid = 000
-#Is the student late
-#
+#is the the student late
 
-isTakingAttendance = True
+##isTakingattendance=True
+##while isTakingattendance: 
+  ##attendance()
+def attache():
+  studentRegistration()
+  attendance()
+  check()
+  if len(FINALREGIS) < 32:
+    attache()
+  if len(FINALREGIS) == 32: 
+    print("ATTENDANCE COMPLETE")
 
-while isTakingAttendance:
-    attendance()
+  
